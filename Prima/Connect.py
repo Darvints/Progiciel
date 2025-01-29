@@ -482,7 +482,7 @@ def get_Df_Rdts(Dico_ID,Portfolio, Cap, performance_df, entry_dates, identifiant
         with J[4]:
             BP_BR(Dico_ID, identifiant, selected_portfolio, selected_option)
         with J[2]:
-            transaction_file = f"transactions_{identifiant}.csv"
+            transaction_file = f"Prima/transactions_{identifiant}.csv"
             transactions_df = pd.read_csv(transaction_file, encoding='utf-8')
             List_transaction = transactions_df.values
             Dico_transaction = dict()
@@ -642,7 +642,7 @@ def update_portfolio(dico_id, identifiant, portfolio_name, current_tickers, entr
             return False
 
         # Mise à jour de l'historique des transactions
-        transaction_file = f"transactions_{identifiant}.csv"
+        transaction_file = f"Prima/transactions_{identifiant}.csv"
 
         try:
             transactions_df = pd.read_csv(transaction_file)
