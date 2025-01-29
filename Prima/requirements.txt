@@ -1,0 +1,13 @@
+streamlit
+pandas
+numpy
+matplotlib
+seaborn
+yfinance
+scipy
+arch
+statsmodels
+xlsxwriter
+Pillow
+reportlab
+dateutil
