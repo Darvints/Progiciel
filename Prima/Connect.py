@@ -34,7 +34,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Chemins et constantes
-os.listdir('/workspaces/Progiciel/Prima')
+os.listdir('Prima')
 DATA_FILEPATH = "Data_Connect.csv"
 
 # Dictionnaire de correspondance des tickers CAC40
