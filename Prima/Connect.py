@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta, date
 import os
 from Prima_function import *
-from VaR_Analysis import *
 from ExcelReporting import *
 
 from dateutil.relativedelta import relativedelta
