@@ -1,0 +1,5 @@
+portfolio,date,type,ticker,price,entry_date,exit_date,performance
+Az,11/04/2018,add,Atos,10.0,11/04/2018,,
+Az,11/04/2018,add,Capgemini,15.0,11/04/2018,,
+Az,11/04/2018,add,Crédit Agricole,10.0,11/04/2018,,
+Az,22/01/2025,close,Atos,0.0,,22/01/2025,-100.0
