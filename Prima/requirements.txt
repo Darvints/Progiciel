@@ -10,4 +10,4 @@ statsmodels
 xlsxwriter
 Pillow
 reportlab
-dateutil
+python-dateutil
