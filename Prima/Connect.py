@@ -35,7 +35,7 @@ st.markdown("""
 
 # Chemins et constantes
 os.listdir('Prima')
-DATA_FILEPATH = "Data_Connect.csv"
+DATA_FILEPATH = "Prima/Data_Connect.csv"
 
 # Dictionnaire de correspondance des tickers CAC40
 cac40_yfinance = {
