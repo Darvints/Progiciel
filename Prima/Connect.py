@@ -92,7 +92,7 @@ def save_data(dico_data):
         rows.append(row)
 
     df = pd.DataFrame(rows)
-    df.to_csv("Data_Connect.csv", sep=";", index=False, header=False)
+    df.to_csv("Prima/Data_Connect.csv", sep=";", index=False, header=False)
 
 # ======================== Fonctions de Gestion des Prix ========================
 
@@ -701,7 +701,7 @@ def display_transaction_history(identifiant, selected_portfolio=None):
     Affiche l'historique des transactions d'un portefeuille
     """
     try:
-        transaction_file = f"transactions_{identifiant}.csv"
+        transaction_file = f"Prima/transactions_{identifiant}.csv"
         transactions_df = pd.read_csv(transaction_file, encoding='utf-8')
 
         if selected_portfolio:
@@ -1010,7 +1010,7 @@ def page_create(dico_id, cac40_yfinance):
                                 save_data(dico_id)
 
                                 # Création du fichier de transactions
-                                transaction_file = f"transactions_{new_identifiant}.csv"
+                                transaction_file = f"Prima/transactions_{new_identifiant}.csv"
                                 transactions_data = [
                                     {
                                         'portfolio': new_portofolio,
@@ -1234,7 +1234,7 @@ def page_new_portfolio():
                                 save_data(Dico_ID)
 
                                 # Mise à jour des transactions
-                                transaction_file = f"transactions_{identifiant}.csv"
+                                transaction_file = f"Prima/transactions_{identifiant}.csv"
                                 transactions_data = [
                                     {
                                         'portfolio': portfolio_name,
@@ -1834,7 +1834,7 @@ def page_dashboard():
             prices_df = get_last_prices_df(List_Ticker, Base_Ticker, tickers_dict, entry_dates, cac40_yfinance)
 
             # Récupérer l'historique des transactions
-            transaction_file = f"transactions_{Identifiant}.csv"
+            transaction_file = f"Prima/transactions_{Identifiant}.csv"
             try:
                 transactions_df = pd.read_csv(transaction_file)
             except FileNotFoundError:
