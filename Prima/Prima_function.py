@@ -57,15 +57,25 @@ def VaR_VARCOV(Rdt, w, alpha):
     return VaR
 
 # Riskmetrics
-def RiskMetrics(Rdt, alpha):
-    lda = 0.94
-    z_alpha = norm.ppf(1 - alpha)
-    VAR_0 = Rdt.var(axis=0)
-    VAR_t = lda * VAR_0 + (1 - lda) * Rdt.iloc[-1, :]**2
-    Z = -np.sqrt(VAR_t) * z_alpha
-    C = Rdt.corr()
-    VaR_P = np.sqrt(np.dot(Z, np.dot(C, Z)))
-    return VaR_P
+def RiskMetrics(returns, alpha, lambda_decay=0.94):
+    # Calcul des variances EWMA
+    var_ewma = returns.ewm(alpha=(1-lambda_decay)).var()
+    current_var = var_ewma.iloc[-1]
+    
+    # Calcul des covariances EWMA
+    cov_ewma = returns.ewm(alpha=(1-lambda_decay)).cov()
+    current_cov = cov_ewma.iloc[-len(returns.columns):]
+    
+    # Calcul de la matrice de corrélation
+    std_dev = np.sqrt(current_var)
+    corr = current_cov / np.outer(std_dev, std_dev)
+    
+    # Calcul de la VaR
+    z_alpha = norm.ppf(1-alpha)
+    position_risk = -z_alpha * std_dev
+    var_portfolio = np.sqrt(np.dot(position_risk, np.dot(corr, position_risk)))
+    
+    return var_portfolio
 
 #VaR GARCH Univarié
 def VaR_GARCH(Rdt, w, alpha=0.05):
